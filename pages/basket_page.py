@@ -11,7 +11,7 @@ class BasketPage(BasePage):
 
     @log_wrapper
     def verify_added_item_in_basket(self):
-        """Verifying item is added in basket by absent message about empty basket"""
+        """Verify item is added in basket by absent message about empty basket"""
         assert not self.is_element_exist(xpath=self.constants.EMPTY_BASKET_MESSAGE_XPATH)
 
     @log_wrapper
@@ -20,3 +20,11 @@ class BasketPage(BasePage):
         self.wait_until_clickable(xpath=self.constants.DELETE_ITEM_BUTTON_XPATH).click()
         message_empty_basket = self.wait_until_displayed(xpath=self.constants.EMPTY_BASKET_MESSAGE_XPATH)
         assert message_empty_basket.text == self.constants.EMPTY_BASKET_MESSAGE_TEXT, "Text isn't valid"
+
+    @log_wrapper
+    def navigate_to_start_page(self):
+        """Navigate to Start Page by clicking Back button on Basket Page"""
+        self.wait_until_clickable(xpath=self.constants.BACK_BUTTON_XPATH).click()
+
+        from pages.start_page import StartPage
+        return StartPage(self.driver)

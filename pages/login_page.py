@@ -24,7 +24,7 @@ class LoginPage(BasePage):
 
     @log_wrapper
     def navigate_to_sign_up_page(self):
-        """Navigate to Sign Up Page by clicking on SignUp button on Login Page"""
+        """Navigate to Sign Up Page by clicking on Sign Up button on Login Page"""
         self.wait_until_clickable(xpath=self.constants.SIGN_UP_BUTTON_XPATH).click()
 
         from pages.signup_page import SignUpPage

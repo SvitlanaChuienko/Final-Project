@@ -11,6 +11,6 @@ class ContactsPage(BasePage):
 
     @log_wrapper
     def verify_contacts_page_is_displayed(self):
-        """Verify success redirect to the contacts page"""
+        """Verify success redirect to the Contacts Page"""
         contacts_page = self.wait_until_displayed(self.constants.CONTACT_INFO_XPATH)
         assert contacts_page.is_displayed()
